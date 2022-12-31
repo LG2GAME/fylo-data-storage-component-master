@@ -1,0 +1,241 @@
+*, *::before {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --pale-blue: hsl(243, 100%, 93%);
+    --grayish-blue: hsl(229, 7%, 55%);
+    --dark-blue: hsl(228, 56%, 26%);
+    --very-dark-blue: hsl(229, 57%, 11%);
+    --gradient-from: hsl(6, 100%, 80%);
+    --gradient-to: hsl(335, 100%, 65%);
+}
+
+p { font-size: 14px; }
+
+body {
+    background-color: var(--very-dark-blue);
+    font-family: 'Raleway', sans-serif;
+}
+
+.bg {
+    background-image: url("images/bg-desktop.png");
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    position: absolute;
+    z-index: -1;
+    background-size: 100% 50%;
+    height: 100vh;
+    width: 100%;
+}
+
+/* container */
+.container {
+    display: flex;
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* first box */
+.first-box {    
+    background-color: var(--dark-blue);
+    border-radius: 10px 100px 10px 10px;
+    display: flex;
+    flex-direction: column;
+    height: 25vh;
+    justify-content: space-around;
+    padding: 0 3rem;
+    width: 22vw;
+}
+
+.first-box img {
+    width: 150px;
+}
+
+/* first container icons */
+.first-box__icons {
+    display: flex;
+    justify-content: space-between  ;
+    width: 150px;
+}
+
+.first-box__icons__doc,
+.first-box__icons__fol,
+.first-box__icons__upl {
+    align-items: center;
+    background-color: var(--very-dark-blue);
+    border-radius: 8px;
+    display: flex;
+    height: 0px;
+    justify-content: center;
+    padding: 1.3rem;
+    width: 0px;
+}
+
+.first-box__icons__doc img {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+/* set background to second box with progress bar */
+.second-box {
+    background-color: var(--dark-blue);
+    border-radius: 10px;
+    height: 20vh;
+    margin: auto 0 0 2rem;
+    padding: 2rem;
+    position: relative;
+    width: 35vw;
+}
+
+/* text in second box */
+.second-box p {
+    color: var(--grayish-blue);
+    font-weight: 400;
+    margin-bottom: 1rem;
+}
+
+.second-box p span {
+    color: var(--pale-blue);
+    font-weight: 700;
+}
+
+/* comment progress bar */
+.second-box__comment {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 0.25rem 1rem;
+    position: absolute;
+    right: 2rem;
+    top: 0;
+    transform: translateY(-50%);
+}
+
+.second-box__comment::before {
+    border-color: transparent #fff transparent transparent;
+    border-style: solid;
+    border-width: 20px 15px 20px 0;
+    bottom: 0;
+    content: "";
+    height: 0px;
+    position: absolute;
+    right: 0;
+    transform: translateY(50%);
+    width: 0px;
+}
+
+.second-box__comment p {
+    color: var(--grayish-blue);
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.second-box__comment p span {
+    color: var(--very-dark-blue);
+    font-size: 32px;
+}
+
+/* progress bar */
+.second-box__progress__progress-bar {
+    background-color: var(--very-dark-blue);
+    border-radius: 12px;
+    height: 16px;
+    position: relative;
+    width: 100%;
+}
+
+/* gradiented progress bar  */
+.second-box__progress__progress-bar__in {
+    background: var(--gradient-from);
+    background: linear-gradient(90deg, var(--gradient-from) 0%, var(--gradient-to) 100%);
+    border-radius: 12px;
+    height: 12px;
+    margin-left: 2px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 81.5%;
+}
+
+/* circle in progress bar */
+.second-box__progress__progress-bar__in::before {
+    background-color: var(--pale-blue);
+    border-radius: 50%;
+    content: "";
+    height: 10px;
+    position: absolute;
+    right: 1px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 10px;
+}
+
+/* text under progress bar */
+.second-box__text {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 5px;
+}
+
+.second-box__text p {
+    color: var(--pale-blue);
+    font-weight: 700;
+}
+
+
+/* MEDIA QUERIES for: 375px */
+@media only screen and (max-width: 376px) {
+
+    /* background image */
+    .bg {
+        background-image: url("images/bg-mobile.png");
+        background-position: center center;
+        background-size: 100% 100%;
+    }
+
+    /* container */
+    .container {
+        display: flex;
+        flex-direction: column;
+        left: 50%;
+    }
+
+    /* first box */
+    .first-box {
+        height: 30vh;
+        width: 80vw;
+    }
+
+    /* second box */
+    .second-box {
+        height: 40vw;
+        margin: 2rem 0 0 0;
+        text-align: center;
+        width: 80vw;
+    }
+
+    /* comment */
+    .second-box__comment {
+        bottom: 0;
+        left: 50%;
+        position: absolute;
+        right: auto;
+        top: auto;
+        transform: translate(-50%, 50%);
+    }
+
+    .second-box__comment::before {
+        visibility: hidden;
+    }
+
+}
+
+/* info about me and a task */
+.attribution { font-size: 11px; text-align: center; }
+.attribution a { color: hsl(228, 45%, 44%); }
